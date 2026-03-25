@@ -14,6 +14,27 @@
 
 }
 
+@keyframes animloader {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 100%;
+    }
+}
+
+@keyframes endloader {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
 /****** Couleurs ***********/
 $main-color: #F6F6F6;
 $color-grey :#EAEAEA;
@@ -21,6 +42,7 @@ $main-color-button : #9356DC;
 $second-color-button : #FF79DA;
 $new-txt-color : #99E2D0;
 $new-bg-color : #008766;
+$color-dark-grey : #353535;
 
 /****** General ***********/
 * {
@@ -77,6 +99,7 @@ h2 {
     flex-direction: column;
     width: 100%;
     height: 251px;
+    position: relative;
 }
 
 .card-text {
@@ -107,13 +130,41 @@ a {
     @include ombres_light
 }
 
+/****** Loader ***********/
+
+.loader {
+    background-color: #353535;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: endloader;
+    animation-delay: 50s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.loader p {
+    font-family: "Shrikhand";
+    font-size: 40px;
+    animation: animloader 1s ease-in-out infinite;
+    background: linear-gradient(90deg, $color-dark-grey, $main-color, $color-dark-grey);
+    color: transparent;
+    background-clip: text;
+    background-size: 200%;
+    animation-direction: alternate;
+    padding: 10px;
+}
 
 /****** Header ***********/
 
-nav {
+header {
     width: 100%;
     @include ombres;
-    z-index: 1000;
+    z-index: 100;
     background-color: white;
     position: fixed;
     top: 0;
@@ -125,7 +176,7 @@ nav {
     justify-content: center;
 }
 
-nav a {
+header a {
     display: flex;
     justify-content: center;
 }
@@ -133,6 +184,8 @@ nav a {
 .logo {
     height: 36px;
 }
+
+/****** form ***********/
 
 form {
     height: 50px;
@@ -158,6 +211,8 @@ form {
     width: 140px;
 }
 
+/****** presentation ***********/
+
 .presentation {
     background-color: $main-color;
     display: flex;
@@ -168,14 +223,21 @@ form {
     text-align: center;
 }
 
-button {
-    background: linear-gradient($second-color-button, $main-color-button);
+.btn {
+    background: linear-gradient(to top, $main-color-button, $second-color-button 100%);
     width: 218px;
     height: 50px;
     border-radius: 100em;
     border: none;
     color: white;
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    filter: brightness(1.05) 
 }
 
 /****** Fonctionnement ***********/
@@ -186,10 +248,24 @@ button {
     align-items: center;
     gap: 33px;
     padding-left: 33px;
+    padding-right: 33px;
     height: 73px;
     width: 100%;
     background-color: $main-color;
     box-shadow: 0px 4px 4px 0px darken($main-color, 15%);
+
+    @media (min-width: 768px) {
+        padding-left: 15%;
+        gap: 15%;
+        padding-right: 15%;
+    }
+
+    @media (min-width: 1024px) {
+        padding-left: 33px;
+        padding-right: 33px;
+        gap: 33px;
+
+    }
 }
 
 .fonctionnement__etapes {
@@ -198,6 +274,15 @@ button {
     margin-bottom: 20px;
     width: 100%;
     align-items: center;
+    position: relative;
+}
+
+.fonctionnement__etapes:hover .fonctionnement__logo {
+    color: $main-color-button;
+}
+
+.fonctionnement__logo {
+    color: #7E7E7E;
 }
 
 .fonctionnement__bulle {
@@ -210,7 +295,7 @@ button {
     height: 24px;
     color: white;
     position: absolute;
-    left: 8px;
+    left: -12px;
 }
 
 .fonctionnement {
@@ -218,16 +303,21 @@ button {
     padding-bottom: 48px;
     background-color: white;
 
-    @media (min-width: 1024px) {
-        padding-left: 180px;
-        padding-right: 180px;
+    @media (min-width: 768px) {
+        padding-left: 15%;
+        padding-right: 15%;
     }
 }
 
 .fonctionnement-container {
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         display: flex;
         gap: 25px;
+    }
+
+    @media (min-width: 1024px) {
+        display: flex;
+        gap: 33px;
     }
 }
 
@@ -270,9 +360,9 @@ button {
     padding: 18px;
     padding-bottom: 48px;
 
-    @media (min-width: 1024px) {
-        padding-left: 180px;
-        padding-right: 180px;
+    @media (min-width: 768px) {
+        padding-left: 15%;
+        padding-right: 15%;
     }
 }
 
@@ -282,7 +372,7 @@ button {
     align-items: center;
     width: 100%;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 50px;
@@ -307,6 +397,7 @@ button {
 .heart-label {
     position: absolute;
     right: 20px;
+    bottom: 20px;
     z-index: 2;
     cursor: pointer;
     font-size: 24px;
@@ -347,13 +438,16 @@ footer {
     padding: 18px;
     gap: 7px;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         height: 114px;
         align-items: flex-end;
         flex-direction: row-reverse;
-        padding-right: 25px;
         display: flex;
         gap: 19px;
+    }
+
+    @media (min-width: 1024px) {
+        display: flex;
     }
 }
 
@@ -364,7 +458,7 @@ footer h2 {
     margin-bottom: 20px;
     padding-bottom: 0;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         width: 139px;
         margin-left: 30px;
     }
@@ -377,7 +471,7 @@ footer a {
 }
 
 .link-contener {
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         display: flex;
         flex-direction: row;
         margin-bottom: 24px;
@@ -393,9 +487,10 @@ footer a {
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         display: flex;
         flex-direction: row;
         gap: 16px;
+        align-items: flex-end;
     }
 }

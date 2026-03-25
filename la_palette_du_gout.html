@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>ohmyfood</title>
     <link rel="stylesheet" type="text/css" href="restaurants_style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Shrikhand&display=swap"
@@ -19,6 +19,10 @@
 </head>
 
 <body>
+
+    <div class="loader">
+      <p>ohmyfood</p>
+   </div>
 
     <header id="top">
         <nav>
@@ -43,108 +47,107 @@
             <div class="plats-container">
 
                 <button class="plats">
-                    <div class="plat-full">
+                    <span class="plat-full">
                         <span class="plat-title">Fricassée d'escargots</span>
-                        <div class="plat-content">
+                        <span class="plat-content">
                             <span class="plat-description">Au piment d'Espelette</span>
                             <span class="plat-prix"><strong>25€</strong></span>
-                        </div>
-                    </div>
+                        </span>
+                    </span>
                     <span class="check"><i class="fa-solid fa-circle-check"></i></span>
                 </button>
 
                 <button class="plats">
-                    <div class="plat-full">
+                    <span class="plat-full">
                         <span class="plat-title">Foie gras de canard mi-cuit</span>
-                        <div class="plat-content">
+                        <span class="plat-content">
                             <span class="plat-description">Et ses copeaux de truffe noire</span>
                             <span class="plat-prix"><strong>35€</strong></span>
-                        </div>
-                    </div>
+                        </span>
+                    </span>
                     <span class="check"><i class="fa-solid fa-circle-check"></i></span>
                 </button>
 
                 <button class="plats">
-                    <div class="plat-full">
+                    <span class="plat-full">
                         <span class="plat-title">Œuf au plat</span>
-                        <div class="plat-content">
+                        <span class="plat-content">
                             <span class="plat-description">Assaisonné à la truffe sur lit de caviar</span>
                             <span class="plat-prix"><strong>20€</strong></span>
-                        </div>
-                    </div>
+                        </span>
+                    </span>
                     <span class="check"><i class="fa-solid fa-circle-check"></i></span>
                 </button>
+            </div>
         </section>
 
         <section class="menu">
             <h2 class="etapes">PLATS</h2>
-            <div class="plats-container"></div>
-
-            <button class="plats">
-                <div class="plat-full">
-                    <span class="plat-title">Filet de bœuf aux herbes</span>
-                    <div class="plat-content">
-                        <span class="plat-description">Accompagné de sa ribambelle de légumes</span>
-                        <span class="plat-prix"><strong>40€</strong></span>
-                    </div>
-                </div>
-                <span class="check"><i class="fa-solid fa-circle-check"></i></span>
-            </button>
-            <button class="plats">
-                <div class="plat-full">
-                    <span class="plat-title">Parmentier de queue de bœuf</span>
-                    <div class="plat-content">
-                        <span class="plat-description">À la truffe noire sur sa purée de panais</span>
-                        <span class="plat-prix"><strong>35€</strong></span>
-                    </div>
-                </div>
-                <span class="check"><i class="fa-solid fa-circle-check"></i></span>
-            </button>
-            <button class="plats">
-                <div class="plat-full">
-                    <span class="plat-title">Filet de turbot</span>
-                    <div class="plat-content">
-                        <span class="plat-description">Aux agrumes</span>
-                        <span class="plat-prix"><strong>44€</strong></span>
-                    </div>
-                </div>
-                <span class="check"><i class="fa-solid fa-circle-check"></i></span>
-            </button>
+            <div class="plats-container">
+                <button class="plats">
+                    <span class="plat-full">
+                        <span class="plat-title">Filet de bœuf aux herbes</span>
+                        <span class="plat-content">
+                            <span class="plat-description">Accompagné de sa ribambelle de légumes</span>
+                            <span class="plat-prix"><strong>40€</strong></span>
+                        </span>
+                    </span>
+                    <span class="check"><i class="fa-solid fa-circle-check"></i></span>
+                </button>
+                <button class="plats">
+                    <span class="plat-full">
+                        <span class="plat-title">Parmentier de queue de bœuf</span>
+                        <span class="plat-content">
+                            <span class="plat-description">À la truffe noire sur sa purée de panais</span>
+                            <span class="plat-prix"><strong>35€</strong></span>
+                        </span>
+                    </span>
+                    <span class="check"><i class="fa-solid fa-circle-check"></i></span>
+                </button>
+                <button class="plats">
+                    <span class="plat-full">
+                        <span class="plat-title">Filet de turbot</span>
+                        <span class="plat-content">
+                            <span class="plat-description">Aux agrumes</span>
+                            <span class="plat-prix"><strong>44€</strong></span>
+                        </span>
+                    </span>
+                    <span class="check"><i class="fa-solid fa-circle-check"></i></span>
+                </button>
+            </div>
         </section>
-        </div>
-
 
         <section class="menu">
             <h2>DESSERTS</h2>
             <div class="plats-container">
                 <button class="plats">
-                    <div class="plat-full">
+                    <span class="plat-full">
                         <span class="plat-title">Paris-Brest</span>
-                        <div class="plat-content">
+                        <span class="plat-content">
                             <span class="plat-description">Revisité</span>
                             <span class="plat-prix"><strong>18€</strong></span>
-                        </div>
-                    </div>
+                        </span>
+                    </span>
                     <span class="check"><i class="fa-solid fa-circle-check"></i></span>
                 </button>
                 <button class="plats">
-                    <div class="plat-full">
+                    <span class="plat-full">
                         <span class="plat-title">Macaron au chocolat d'exception</span>
-                        <div class="plat-content">
+                        <span class="plat-content">
                             <span class="plat-description">Et glace à la vanille de Madagascar</span>
                             <span class="plat-prix"><strong>22€</strong></span>
-                        </div>
-                    </div>
+                        </span>
+                    </span>
                     <span class="check"><i class="fa-solid fa-circle-check"></i></span>
                 </button>
                 <button class="plats">
-                    <div class="plat-full">
+                    <span class="plat-full">
                         <span class="plat-title">Mousse au chocolat</span>
-                        <div class="plat-content">
+                        <span class="plat-content">
                             <span class="plat-description">Au piment d'Espelette et à la truffe noire</span>
                             <span class="plat-prix"><strong>23€</strong></span>
-                        </div>
-                    </div>
+                        </span>
+                    </span>
                     <span class="check"><i class="fa-solid fa-circle-check"></i></span>
                 </button>
             </div>
@@ -174,7 +177,7 @@
                     <a href="#">Mentions légales</a>
                 </li>
                 <li class="liens">
-                    <a href="#">Contact</a>
+                    <a href="mailto:contact@ohmyfood.com">Contact</a>
                 </li>
             </ul>
         </div>

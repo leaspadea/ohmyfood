@@ -1,4 +1,21 @@
 /****** mixin ***********/
+@keyframes animloader {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+@keyframes endloader {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
 /****** Couleurs ***********/
 /****** General ***********/
 * {
@@ -55,6 +72,7 @@ h2 {
   flex-direction: column;
   width: 100%;
   height: 251px;
+  position: relative;
 }
 
 .card-text {
@@ -85,11 +103,40 @@ a {
   box-shadow: 0px 4.01px 15.04px 0px rgba(0, 0, 0, 0.1019607843);
 }
 
+/****** Loader ***********/
+.loader {
+  background-color: #353535;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation-name: endloader;
+  animation-delay: 50s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.loader p {
+  font-family: "Shrikhand";
+  font-size: 40px;
+  animation: animloader 1s ease-in-out infinite;
+  background: linear-gradient(90deg, #353535, #F6F6F6, #353535);
+  color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+  background-size: 200%;
+  animation-direction: alternate;
+  padding: 10px;
+}
+
 /****** Header ***********/
-nav {
+header {
   width: 100%;
   box-shadow: 0px 4px 4px 0px rgb(207.75, 207.75, 207.75);
-  z-index: 1000;
+  z-index: 100;
   background-color: white;
   position: fixed;
   top: 0;
@@ -101,7 +148,7 @@ nav {
   justify-content: center;
 }
 
-nav a {
+header a {
   display: flex;
   justify-content: center;
 }
@@ -110,6 +157,7 @@ nav a {
   height: 36px;
 }
 
+/****** form ***********/
 form {
   height: 50px;
   width: 100%;
@@ -135,6 +183,7 @@ form {
   width: 140px;
 }
 
+/****** presentation ***********/
 .presentation {
   background-color: #F6F6F6;
   display: flex;
@@ -145,14 +194,21 @@ form {
   text-align: center;
 }
 
-button {
-  background: linear-gradient(#FF79DA, #9356DC);
+.btn {
+  background: linear-gradient(to top, #9356DC, #FF79DA 100%);
   width: 218px;
   height: 50px;
   border-radius: 100em;
   border: none;
   color: white;
   margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
 }
 
 /****** Fonctionnement ***********/
@@ -163,10 +219,25 @@ button {
   align-items: center;
   gap: 33px;
   padding-left: 33px;
+  padding-right: 33px;
   height: 73px;
   width: 100%;
   background-color: #F6F6F6;
   box-shadow: 0px 4px 4px 0px rgb(207.75, 207.75, 207.75);
+}
+@media (min-width: 768px) {
+  .etapes {
+    padding-left: 15%;
+    gap: 15%;
+    padding-right: 15%;
+  }
+}
+@media (min-width: 1024px) {
+  .etapes {
+    padding-left: 33px;
+    padding-right: 33px;
+    gap: 33px;
+  }
 }
 
 .fonctionnement__etapes {
@@ -175,6 +246,15 @@ button {
   margin-bottom: 20px;
   width: 100%;
   align-items: center;
+  position: relative;
+}
+
+.fonctionnement__etapes:hover .fonctionnement__logo {
+  color: #9356DC;
+}
+
+.fonctionnement__logo {
+  color: #7E7E7E;
 }
 
 .fonctionnement__bulle {
@@ -187,7 +267,7 @@ button {
   height: 24px;
   color: white;
   position: absolute;
-  left: 8px;
+  left: -12px;
 }
 
 .fonctionnement {
@@ -195,17 +275,23 @@ button {
   padding-bottom: 48px;
   background-color: white;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .fonctionnement {
-    padding-left: 180px;
-    padding-right: 180px;
+    padding-left: 15%;
+    padding-right: 15%;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .fonctionnement-container {
     display: flex;
     gap: 25px;
+  }
+}
+@media (min-width: 1024px) {
+  .fonctionnement-container {
+    display: flex;
+    gap: 33px;
   }
 }
 
@@ -247,10 +333,10 @@ button {
   padding: 18px;
   padding-bottom: 48px;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .restaurants {
-    padding-left: 180px;
-    padding-right: 180px;
+    padding-left: 15%;
+    padding-right: 15%;
   }
 }
 
@@ -260,7 +346,7 @@ button {
   align-items: center;
   width: 100%;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .restaurants-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -285,6 +371,7 @@ button {
 .heart-label {
   position: absolute;
   right: 20px;
+  bottom: 20px;
   z-index: 2;
   cursor: pointer;
   font-size: 24px;
@@ -324,14 +411,18 @@ footer {
   padding: 18px;
   gap: 7px;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   footer {
     height: 114px;
     align-items: flex-end;
     flex-direction: row-reverse;
-    padding-right: 25px;
     display: flex;
     gap: 19px;
+  }
+}
+@media (min-width: 1024px) {
+  footer {
+    display: flex;
   }
 }
 
@@ -342,7 +433,7 @@ footer h2 {
   margin-bottom: 20px;
   padding-bottom: 0;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   footer h2 {
     width: 139px;
     margin-left: 30px;
@@ -355,7 +446,7 @@ footer a {
   gap: 7px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .link-contener {
     display: flex;
     flex-direction: row;
@@ -372,10 +463,11 @@ footer a {
   display: flex;
   flex-direction: column;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .list-link {
     display: flex;
     flex-direction: row;
     gap: 16px;
+    align-items: flex-end;
   }
 }/*# sourceMappingURL=style.css.map */

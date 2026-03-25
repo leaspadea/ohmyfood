@@ -6,7 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>ohmyfood</title>
    <link rel="stylesheet" type="text/css" href="style.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Shrikhand&display=swap"
@@ -19,56 +19,57 @@
 </head>
 
 <body>
+   <div class="loader">
+      <p>ohmyfood</p>
+   </div>
 
    <div id="main-container">
-      <header id="home">
-         <nav>
-            <a href="#home">
-            <img src="images/logo/ohmyfood.png" alt="Logo" class="logo" >
-            </a>
-         </nav>
+      <header>
+         <a href="#">
+            <img src="images/logo/ohmyfood.png" alt="Logo" class="logo">
+         </a>
+      </header>
+
+      <main>
          <form action="#" method="get">
             <div class="barre-recherche">
                <i class="fa-solid fa-location-dot"></i>
                <input class="recherche" type="search" name="q" placeholder="Paris, Belleville" size="40">
             </div>
          </form>
-         <div class="presentation">
+         <section class="presentation">
             <h1>Réservez le menu qui vous convient</h1>
             <p>Découvrez des restarants d'exceptions, sélectionnés par nos soins.</p>
-            <button>Explorez nos restaurants</button>
-         </div>
-      </header>
-
-      <main>
+            <a href="#restaurants" class="btn">Explorez nos restaurants</a>
+         </section>
          <section class="fonctionnement">
             <h2>Fonctionnement</h2>
             <div class="fonctionnement-container">
                <div class="fonctionnement__etapes">
                   <span class="fonctionnement__bulle">1</span>
                   <div class="etapes">
-                     <i class="fa-solid fa-mobile"></i>
+                     <i class="fa-solid fa-mobile-screen fonctionnement__logo"></i>
                      <p>Choisissez un restaurants</p>
                   </div>
                </div>
                <div class="fonctionnement__etapes">
                   <span class="fonctionnement__bulle">2</span>
                   <div class="etapes">
-                     <i class="fa-solid fa-list"></i>
+                     <i class="fa-solid fa-list fonctionnement__logo"></i>
                      <p>Composez vos menus</p>
                   </div>
                </div>
                <div class="fonctionnement__etapes">
                   <span class="fonctionnement__bulle">3</span>
                   <div class="etapes">
-                     <i class="fa-solid fa-store"></i>
+                     <i class="fa-solid fa-store fonctionnement__logo"></i>
                      <p>Dégustez aux restaurants</p>
                   </div>
                </div>
             </div>
          </section>
 
-         <section class="restaurants">
+         <section class="restaurants" id="restaurants">
             <h2>Restaurants</h2>
             <div class="restaurants-cards">
 
@@ -81,12 +82,12 @@
                            <h3 class="card-title">La palette du goût</h3>
                            <p>Ménilmontant</p>
                         </div>
-                        <label class="heart-label">
-                           <i class="fa-regular fa-heart heart-vide"></i>
-                           <i class="fa-solid fa-heart heart-full"></i>
-                        </label>
                      </div>
                   </a>
+                  <label class="heart-label">
+                     <i class="fa-regular fa-heart heart-vide"></i>
+                     <i class="fa-solid fa-heart heart-full"></i>
+                  </label>
                </article>
 
                <article class="card">
@@ -98,12 +99,12 @@
                            <h3 class="card-title">La note enchantée</h3>
                            <p>Charonne</p>
                         </div>
-                        <label class="heart-label">
-                           <i class="fa-regular fa-heart heart-vide"></i>
-                           <i class="fa-solid fa-heart heart-full"></i>
-                        </label>
                      </div>
                   </a>
+                  <label class="heart-label">
+                     <i class="fa-regular fa-heart heart-vide"></i>
+                     <i class="fa-solid fa-heart heart-full"></i>
+                  </label>
                </article>
 
                <article class="card">
@@ -114,12 +115,12 @@
                            <h3 class="card-title">À la française</h3>
                            <p>Cité Rouge</p>
                         </div>
-                        <label class="heart-label">
-                           <i class="fa-regular fa-heart heart-vide"></i>
-                           <i class="fa-solid fa-heart heart-full"></i>
-                        </label>
                      </div>
                   </a>
+                  <label class="heart-label">
+                     <i class="fa-regular fa-heart heart-vide"></i>
+                     <i class="fa-solid fa-heart heart-full"></i>
+                  </label>
                </article>
 
                <article class="card">
@@ -131,12 +132,12 @@
                            <h3 class="card-title">Le délice des sens</h3>
                            <p>Folie-Méricourt</p>
                         </div>
-                        <label class="heart-label">
-                           <i class="fa-regular fa-heart heart-vide"></i>
-                           <i class="fa-solid fa-heart heart-full"></i>
-                        </label>
                      </div>
                   </a>
+                  <label class="heart-label">
+                     <i class="fa-regular fa-heart heart-vide"></i>
+                     <i class="fa-solid fa-heart heart-full"></i>
+                  </label>
                </article>
             </div>
          </section>
@@ -145,28 +146,28 @@
       <footer>
          <h2>ohmyfood</h2>
          <div class="link-contener">
-         <ul class="list-link">
-            <li class="liens">
-               <a href="#">
-                  <i class="fa-solid fa-utensils"></i>
-                  <p>Proposer un restaurant</p>
-               </a>
-            </li>
-            <li class="liens">
-               <a href="#">
-                  <i class="fa-solid fa-handshake-angle"></i>
-                  <p>Devenir partenaire</p>
-               </a>
-            </li>
-         </ul>
-         <ul class="list-link">
-            <li class="liens">
-               <a href="#">Mentions légales</a>
-            </li>
-            <li class="liens">
-               <a href="#">Contact</a>
-            </li>
-         </ul>
+            <ul class="list-link">
+               <li class="liens">
+                  <a href="#">
+                     <i class="fa-solid fa-utensils"></i>
+                     <p>Proposer un restaurant</p>
+                  </a>
+               </li>
+               <li class="liens">
+                  <a href="#">
+                     <i class="fa-solid fa-handshake-angle"></i>
+                     <p>Devenir partenaire</p>
+                  </a>
+               </li>
+            </ul>
+            <ul class="list-link">
+               <li class="liens">
+                  <a href="#">Mentions légales</a>
+               </li>
+               <li class="liens">
+                  <a href="mailto:contact@ohmyfood.com">Contact</a>
+               </li>
+            </ul>
          </div>
       </footer>
    </div>

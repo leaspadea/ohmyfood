@@ -14,6 +14,38 @@
 
 }
 
+@keyframes animloader {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 100%;
+    }
+}
+
+@keyframes endloader {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /****** Couleurs ***********/
 $main-color: #F6F6F6;
 $color-grey :#EAEAEA;
@@ -21,6 +53,7 @@ $main-color-button : #9356DC;
 $second-color-button : #FF79DA;
 $new-txt-color : #99E2D0;
 $new-bg-color : #008766;
+$color-dark-grey : #353535;
 
 /****** General ***********/
 * {
@@ -76,11 +109,40 @@ p {
     margin: 0;
 }
 
+/****** Loader ***********/
+
+.loader {
+    background-color: #353535;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: endloader;
+    animation-delay: 1.5s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.loader p {
+    font-family: "Shrikhand";
+    font-size: 40px;
+    animation: animloader 1s ease-in-out infinite;
+    background: linear-gradient(90deg, $color-dark-grey, $main-color, $color-dark-grey);
+    color: transparent;
+    background-clip: text;
+    background-size: 200%;
+    animation-direction: alternate;
+    padding: 10px;
+}
+
 /****** nav ***********/
 
 nav {
     width: 100%;
-    z-index: 1000;
+    z-index: 100;
     background-color: white;
     position: fixed;
     top: 0;
@@ -135,6 +197,11 @@ nav a {
     z-index: 2;
     cursor: pointer;
     font-size: 24px;
+
+    @media (min-width: 768px) {
+        position: relative;
+        margin-left: 35px;
+    }
 }
 
 .heart-full {
@@ -169,16 +236,25 @@ nav a {
 .menu {
     margin-bottom: 40px;
     width: 100%;
-    @media (min-width: 1024px){
+    opacity: 0;
+    animation: slide 0.5s ease forwards;
+
+    @media (min-width: 768px) {
         width: 70%;
         margin: auto;
     }
 }
 
+
 .title {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (min-width: 768px) {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .main-container {
@@ -191,7 +267,7 @@ nav a {
     width: 100%;
     box-sizing: border-box;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         width: 70%;
         display: flex;
         margin: auto;
@@ -203,7 +279,7 @@ nav a {
     font-size: 18px;
     font-weight: 500;
     margin: 0;
-    padding-left: 20px;
+    padding-left: 15px;
     display: flex;
     flex-direction: row;
 }
@@ -212,8 +288,8 @@ nav a {
     display: flex;
     justify-content: space-between;
     font-size: 15.03px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .plat-description {
@@ -241,9 +317,9 @@ nav a {
     justify-content: space-between;
     padding: 0;
     position: relative;
+    opacity: 0;
+    animation: slide 0.4s ease forwards;
 }
-
-
 
 .check {
     color: white;
@@ -269,7 +345,7 @@ nav a {
 }
 
 .commander {
-    background: linear-gradient($second-color-button, $main-color-button);
+background: linear-gradient(to top, $main-color-button, $second-color-button 100%);
     width: 218px;
     height: 50px;
     border-radius: 100em;
@@ -283,12 +359,32 @@ nav a {
     margin-right: auto;
 }
 
+.commander:hover {
+    filter:brightness(1.05)
+}
+
 .plat-full {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 5px;
     width: 100%;
 }
+
+/* Entrées */
+.menu:nth-of-type(1) .plats:nth-child(1) { animation-delay: 2.1s; }
+.menu:nth-of-type(1) .plats:nth-child(2) { animation-delay: 2.2s; }
+.menu:nth-of-type(1) .plats:nth-child(3) { animation-delay: 2.3s; }
+
+/* Plats */
+.menu:nth-of-type(2) .plats:nth-child(1) { animation-delay: 2.5s; }
+.menu:nth-of-type(2) .plats:nth-child(2) { animation-delay: 2.6s; }
+.menu:nth-of-type(2) .plats:nth-child(3) { animation-delay: 2.7s; }
+
+/* Desserts */
+.menu:nth-of-type(3) .plats:nth-child(1) { animation-delay: 2.9s; }
+.menu:nth-of-type(3) .plats:nth-child(2) { animation-delay: 3.0s; }
+.menu:nth-of-type(3) .plats:nth-child(3) { animation-delay: 3.1s; }
 
 /****** footer ***********/
 
@@ -298,7 +394,7 @@ footer {
     padding: 18px;
     gap: 7px;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         height: 114px;
         align-items: flex-end;
         flex-direction: row-reverse;
@@ -315,10 +411,9 @@ footer h2 {
     margin-bottom: 20px;
     padding-bottom: 0;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         width: 139px;
         margin-left: 30px;
-
     }
 }
 
@@ -329,7 +424,7 @@ footer a {
 }
 
 .link-contener {
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         display: flex;
         flex-direction: row;
         margin-bottom: 24px;
@@ -345,7 +440,7 @@ footer a {
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         display: flex;
         flex-direction: row;
         gap: 16px;
