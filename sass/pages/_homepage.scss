@@ -1,0 +1,167 @@
+// ================================
+//  PAGES - Homepage
+// ================================
+
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+// Section présentation
+.presentation {
+    background-color: v.$main-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    text-align: center;
+}
+
+// Section fonctionnement
+.fonctionnement {
+    padding: 18px;
+    padding-bottom: 48px;
+    background-color: white;
+
+    @include m.tablet {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+.fonctionnement-container {
+    @include m.tablet {
+        display: flex;
+        gap: 25px;
+    }
+
+    @include m.desktop {
+        gap: 33px;
+    }
+}
+
+.fonctionnement__etapes {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+    align-items: center;
+    position: relative;
+
+    &:hover .fonctionnement__logo {
+        color: v.$main-color-button;
+    }
+}
+
+.fonctionnement__logo {
+    color: #7E7E7E;
+}
+
+.fonctionnement__bulle {
+    background-color: v.$main-color-button;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: white;
+    position: absolute;
+    left: -12px;
+}
+
+.etapes {
+    @include m.ombres-light;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 33px;
+    padding-left: 33px;
+    padding-right: 33px;
+    height: 73px;
+    width: 100%;
+    background-color: v.$main-color;
+
+    @include m.tablet {
+        padding-left: 15%;
+        gap: 15%;
+        padding-right: 15%;
+    }
+
+    @include m.desktop {
+        padding-left: 33px;
+        padding-right: 33px;
+        gap: 33px;
+    }
+}
+
+// Section restaurants
+.restaurants {
+    background-color: v.$main-color;
+    padding: 18px;
+    padding-bottom: 48px;
+
+    @include m.tablet {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+.restaurants-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.restaurants-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+
+    .card {
+        display: flex;
+        margin-bottom: 18px;
+        position: relative;
+    }
+
+    img {
+        width: 100%;
+        height: 70%;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .card-content {
+        padding: 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        box-sizing: border-box;
+        align-items: center;
+        height: 30%;
+    }
+}
+
+.restaurants-cards .heart-label {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.card a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+}
+
+.card-content p {
+    margin: 0;
+}

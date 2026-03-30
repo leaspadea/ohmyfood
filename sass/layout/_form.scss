@@ -1,0 +1,30 @@
+// ================================
+//  LAYOUT - Formulaire / Barre de recherche
+// ================================
+
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+form {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: v.$color-grey;
+    box-shadow: 0px 4px 4px 0px darken(v.$main-color, 25%);
+    gap: 17px;
+    position: relative;
+    z-index: 0;
+    padding-top: 63px;
+}
+
+.recherche {
+    border: none;
+    background: v.$color-grey;
+    @include m.polices;
+    font-weight: 500;
+    color: v.$color-dark-grey;
+    text-align: center;
+    width: 140px;
+}

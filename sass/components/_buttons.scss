@@ -1,0 +1,43 @@
+// ================================
+//  COMPONENTS - Boutons
+// ================================
+
+@use '../abstracts/variables' as v;
+
+// Bouton homepage "Explorez nos restaurants"
+.btn {
+    background: linear-gradient(to top, v.$main-color-button, v.$second-color-button 100%);
+    width: 218px;
+    height: 50px;
+    border-radius: 100em;
+    border: none;
+    color: white;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        filter: brightness(1.05);
+    }
+}
+
+// Bouton "Commander" des pages restaurant
+.commander {
+    background: linear-gradient(to top, v.$main-color-button, v.$second-color-button 100%);
+    width: 218px;
+    height: 50px;
+    border-radius: 100em;
+    border: none;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:hover {
+        filter: brightness(1.05);
+    }
+}

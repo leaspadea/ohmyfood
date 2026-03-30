@@ -1,0 +1,32 @@
+// ================================
+//  COMPONENTS - Loader
+// ================================
+
+@use '../abstracts/variables' as v;
+
+.loader {
+    background-color: v.$color-dark-grey;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: endloader;
+    animation-delay: 1.5s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+
+    p {
+        font-family: v.$font-title;
+        font-size: 40px;
+        animation: animloader 1s ease-in-out infinite;
+        background: linear-gradient(90deg, v.$color-dark-grey, v.$main-color, v.$color-dark-grey);
+        color: transparent;
+        background-clip: text;
+        background-size: 200%;
+        animation-direction: alternate;
+        padding: 10px;
+    }
+}

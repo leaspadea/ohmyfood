@@ -1,0 +1,73 @@
+// ================================
+//  LAYOUT - Header & Nav
+// ================================
+
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+// Header homepage
+header {
+    width: 100%;
+    @include m.ombres;
+    z-index: 100;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 63px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    a {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+// Nav des pages restaurant
+.header-restaurant {
+    width: 100%;
+    z-index: 100;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 63px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    a {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.logo {
+    height: 36px;
+}
+
+.fleche {
+    color: v.$color-dark-grey;
+    font-size: 30px;
+    height: 30px;
+    width: 30px;
+    padding-left: 20px;
+}
+
+.empty {
+    height: 30px;
+    width: 30px;
+}
+
+// Photo de présentation (pages restaurant)
+.photo-presentation {
+    width: 100%;
+    height: 275px;
+    object-fit: cover;
+    position: relative;
+    top: 63px;
+}

@@ -1,0 +1,88 @@
+// ================================
+//  PAGES - Pages restaurant (menu)
+// ================================
+
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+// Surcharge typographie spécifique aux pages restaurant
+.main-container h1 {
+    font-family: v.$font-title;
+    font-size: 28px;
+    font-weight: 400;
+    display: block;
+    color: v.$color-dark-grey;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.main-container h2 {
+    font-weight: 300;
+    font-size: 16px;
+    margin-top: 0;
+    color: v.$color-dark-grey;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background-color: v.$new-txt-color;
+    }
+}
+
+.restaurant-container {
+    padding-right: 12px;
+    padding-left: 12px;
+    background-color: v.$main-color;
+    border-radius: 50px 50px 0 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+
+    @include m.tablet {
+        width: 70%;
+        display: flex;
+        margin: auto;
+        gap: 40px;
+    }
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    color: v.$color-dark-grey;
+
+    @include m.tablet {
+        justify-content: center;
+    }
+}
+
+
+.title .heart-label {
+    position: relative;
+    margin-left: 15px;
+    bottom: unset;
+    right: unset;
+}
+
+.menu {
+    margin-bottom: 40px;
+    width: 100%;
+    opacity: 0;
+    animation: slide 0.5s ease forwards;
+
+    @include m.tablet {
+        width: 70%;
+        margin: auto;
+    }
+}

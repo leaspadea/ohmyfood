@@ -1,0 +1,54 @@
+// ================================
+//  ABSTRACTS - Mixins & Keyframes
+// ================================
+
+@use 'variables' as v;
+
+// Ombre forte (header)
+@mixin ombres {
+    box-shadow: 0px 4px 4px 0px darken(v.$main-color, 15%);
+}
+
+// Ombre douce (cards, étapes)
+@mixin ombres-light {
+    box-shadow: 0px 4.01px 15.04px 0px #0000001A;
+}
+
+// Police de base
+@mixin polices {
+    font-family: v.$font-main;
+    font-size: 16px;
+}
+
+// Responsive tablet
+@mixin tablet {
+    @media (min-width: v.$bp-tablet) {
+        @content;
+    }
+}
+
+// Responsive desktop
+@mixin desktop {
+    @media (min-width: v.$bp-desktop) {
+        @content;
+    }
+}
+
+// ================================
+//  Keyframes
+// ================================
+
+@keyframes animloader {
+    0%   { background-position: 0%; }
+    100% { background-position: 100%; }
+}
+
+@keyframes endloader {
+    0%   { opacity: 1; }
+    100% { opacity: 0; pointer-events: none; }
+}
+
+@keyframes slide {
+    0%   { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}

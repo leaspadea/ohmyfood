@@ -1,0 +1,65 @@
+// ================================
+//  LAYOUT - Footer
+// ================================
+
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+footer {
+    background-color: v.$color-dark-grey;
+    color: white;
+    padding: 18px;
+    gap: 7px;
+
+    @include m.tablet {
+        height: 114px;
+        align-items: flex-end;
+        flex-direction: row-reverse;
+        padding-right: 25px;
+        display: flex;
+        gap: 19px;
+    }
+
+    h2 {
+        font-family: v.$font-title;
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        padding-bottom: 0;
+
+        @include m.tablet {
+            width: 139px;
+            margin-left: 30px;
+        }
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+    }
+}
+
+.link-contener {
+    @include m.tablet {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 24px;
+        gap: 16px;
+    }
+}
+
+.list-link {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+
+    @include m.tablet {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+    }
+}
